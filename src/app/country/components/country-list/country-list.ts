@@ -1,11 +1,15 @@
-import {Component, signal} from '@angular/core';
+import {Component, input} from '@angular/core';
+import {CountryInterface} from '../../interfaces/country.interface';
+import {DecimalPipe} from '@angular/common';
 
 @Component({
   selector: 'country-list',
-  imports: [],
+  imports: [
+    DecimalPipe
+  ],
   templateUrl: './country-list.html',
   styleUrl: './country-list.css'
 })
 export class CountryList {
-  list = signal<any[]>([])
+  list = input<CountryInterface[]>()
 }

@@ -1,3 +1,7 @@
-<country-search-input (handleSearch)="onSearch($event)"/>
+<country-search-input placeholder="Por capital" (handleSearch)="query.set($event)"/>
 
-<country-list/>
+@if (countryResource.error()){
+  <h3>{{countryResource.error()}}</h3>
+} @else {
+  <country-list [list]="countryResource.value() ?? []"/>
+}

@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Output} from '@angular/core';
+import {Component, input, output} from '@angular/core';
 
 @Component({
   selector: 'country-search-input',
@@ -7,7 +7,8 @@ import {Component, EventEmitter, Output} from '@angular/core';
   styleUrl: './country-search-input.css'
 })
 export class CountrySearchInput {
-  @Output() handleSearch = new EventEmitter<string>();
+  placeholder = input<string>()
+  handleSearch = output<string>()
   onSearch(value: string) {
     this.handleSearch.emit(value);
   }
