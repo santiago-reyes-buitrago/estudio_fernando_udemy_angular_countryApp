@@ -1,7 +1,7 @@
 import {inject, Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {RestCountry} from '../interfaces/rest-countries.interface';
-import {map, Observable, catchError, throwError} from 'rxjs';
+import {map, Observable, catchError, throwError, delay} from 'rxjs';
 import {CountryMapper} from '../mapper/country.mapper';
 import {CountryInterface} from '../interfaces/country.interface';
 
@@ -18,6 +18,7 @@ export class CountryService {
     query = query.toLowerCase();
     return this.http.get<RestCountry[]>(`${API_URL}/capital/${query}`).pipe(
       map(CountryMapper.mapRestCountrytoCountryArray),
+      delay(10000),
       catchError(err => {
         console.log(err)
         return throwError(()=> new Error(`No se pudo obtener la informacion con ese query: ${query}`))

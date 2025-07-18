@@ -29,6 +29,14 @@
           <td><a class="link-primary cursor-pointer">Ver mas Informacion</a></td>
         </tr>
       }
+    @if(errorMessage()){
+      <tr>
+        <td colspan="/" class="text-center">
+          {{errorMessage()}}
+        </td>
+      </tr>
+    }
+<!--    @-->
     </tbody>
   </table>
 </section>
