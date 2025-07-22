@@ -36,4 +36,15 @@ export class CountryService {
       })
     )
   }
+
+  searchCountryByAlphaCode(code: string):Observable<CountryInterface|undefined>{
+    return this.http.get<RestCountry[]>(`${API_URL}/alpha/${code}`).pipe(
+      map(CountryMapper.mapRestCountrytoCountryArray),
+      map(countries => countries.at(0)),
+      catchError(err => {
+        console.log(err)
+        return throwError(()=> new Error(`No se pudo obtener la informacion con ese codigo: ${code}`))
+      })
+    )
+  }
 }

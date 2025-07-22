@@ -1,3 +1,8 @@
 <country-search-input placeholder="Por capital" (handleSearch)="query.set($event)"/>
 
-<country-list [list]="countryResource.value() ?? []"/>
+<country-list
+  [list]="countryResource.value() ?? []"
+  [errorMessage]="countryResource.error()"
+  [isEmpty]="countryResource.value()?.length === 0"
+  [isLoading]="countryResource.isLoading()"
+/>

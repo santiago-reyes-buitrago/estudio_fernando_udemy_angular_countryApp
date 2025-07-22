@@ -3,6 +3,11 @@
 @if (countryResource.error()){
   <h3>{{countryResource.error()}}</h3>
 } @else {
-  <country-list [list]="countryResource.value() ?? []"/>
+  <country-list
+    [list]="countryResource.value() ?? []"
+    [errorMessage]="countryResource.error()"
+    [isEmpty]="countryResource.value()?.length === 0"
+    [isLoading]="countryResource.isLoading()"
+  />
 }
 
