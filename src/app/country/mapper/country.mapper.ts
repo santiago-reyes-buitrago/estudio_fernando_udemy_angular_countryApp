@@ -10,7 +10,9 @@ export class CountryMapper {
       cca2: item.cca2,
       flag: item.flag,
       flagPng: item.flags.svg,
-      flagAlt: item.flags.alt
+      flagAlt: item.flags.alt,
+      region: item.region,
+      subRegion: item.subregion
     }
   }
   static mapRestCountrytoCountryArray(items: RestCountry[]):CountryInterface[]{

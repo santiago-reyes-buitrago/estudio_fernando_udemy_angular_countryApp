@@ -6,4 +6,6 @@ export interface CountryInterface {
   name: string;
   capital: string[];
   population: number;
+  region: string;
+  subRegion: string;
 }

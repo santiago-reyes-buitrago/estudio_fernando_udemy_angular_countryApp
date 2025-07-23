@@ -1,0 +1,40 @@
+<section class="mx-10">
+  <h1 class="text-3xl">{{countryInfomation().name}}</h1>
+  <h2 class="text-xl font-thin">
+    Poblacion: {{countryInfomation().population | number}}
+  </h2>
+</section>
+<section class="stats shadow">
+  <div class="stat">
+    <div class="stat-title">Poblacion</div>
+    <div class="stat-value text-primary">{{countryInfomation().population | number}}</div>
+    <div class="stat-desc">Desde {{currentYear()}}</div>
+  </div>
+
+  <div class="stat">
+    <div class="stat-title">Nombre</div>
+    <div class="stat-value text-secondary">{{countryInfomation().name}}</div>
+    <div class="stat-desc">{{countryInfomation().region}}</div>
+  </div>
+
+  <div class="stat">
+    <div class="stat-title">Subregion</div>
+    <div class="stat-value text-secondary">{{countryInfomation().subRegion}}</div>
+    <div class="stat-desc">{{countryInfomation().region}}</div>
+  </div>
+</section>
+<section class="diff aspect-16/9" tabindex="0">
+  <div class="diff-item-1" role="img" tabindex="0">
+    <img
+      [alt]="countryInfomation().name"
+      [src]="countryInfomation().flagPng" />
+  </div>
+  <div class="diff-item-2" role="img">
+    <img
+      class="blur-2xl brightness-75"
+      [alt]="countryInfomation().name"
+      [src]="countryInfomation().flagPng"
+    />
+  </div>
+  <div class="diff-resizer"></div>
+</section>

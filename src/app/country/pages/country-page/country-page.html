@@ -1,10 +1,11 @@
 @if (countryResource.error()){
   <app-error/>
-
 }
-<!--<p>country-page works!</p>-->
-<!--<h1>{{countryCode}}</h1>-->
+
+@if (countryResource.isLoading()){
+  <h1 class="text-3xl">Cargando....</h1>
+}
 
 @if (countryResource.hasValue()){
-  <h3>Nombre: {{countryResource.value()?.name}}</h3>
+  <country-information [countryInfomation]="countryResource.value()"/>
 }
